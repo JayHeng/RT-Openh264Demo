@@ -33,6 +33,8 @@
 */*/*/*/*/flexspinor_flexram_sdram_release/
 */*/*/*/*/sdram_flexram_debug/
 */*/*/*/*/sdram_flexram_release/
+*/*/*/*/*/opt_mix_ram_debug/
+*/*/*/*/*/opt_mix_ram_release/
 
 */*/*/*/*/flash_debug/
 */*/*/*/*/flash_release/

@@ -25,14 +25,14 @@
 ** ###################################################################
 */
 
-define symbol m_itcm_start             = 0x00000000;
-define symbol m_itcm_end               = 0x0001FFFF;
+define symbol m_itcm_start             = 0x00000400;
+define symbol m_itcm_end               = 0x0005FFFF;
 
 define symbol m_dtcm_start             = 0x20000000;
 define symbol m_dtcm_end               = 0x2001FFFF;
 
-define symbol m_interrupts_start       = 0x60002000;
-define symbol m_interrupts_end         = 0x600023FF;
+define symbol m_interrupts_start       = 0x00000000;
+define symbol m_interrupts_end         = 0x000003FF;
 
 define symbol m_text_start             = 0x60002400;
 define symbol m_text_end               = 0x607FFFFF;
@@ -159,11 +159,11 @@ place at address mem:m_boot_hdr_dcd_data_start { readonly section .boot_hdr.dcd_
 
 keep{ section .boot_hdr.conf, section .boot_hdr.ivt, section .boot_hdr.boot_data, section .boot_hdr.dcd_data };
 
-place in TEXT_region                        { readonly };
-place in TEXT_region                        { block H264CODE_INIT };
-place in ITCM_region                        { block H264CODE };
-place in DTCM_region                        { section decode_buf };
-place in DATA_region                        { block RW };
+place in ITCM_region                        { readonly };              // 176KB
+place in DATA_region                        { block H264CODE_INIT };   // 100KB
+place in ITCM_region                        { block H264CODE };        // 171KB
+place in DTCM_region                        { section decode_buf };    // 128KB
+place in DATA_region                        { block RW }; 
 place in DATA_region                        { block ZI };
 if (isdefinedsymbol(__heap_noncacheable__)) {
   place in NCACHE_region                    { last block HEAP };
