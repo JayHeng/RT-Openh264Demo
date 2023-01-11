@@ -87,7 +87,7 @@ do not initialize  { section .noinit };
 
 place at address mem: m_interrupts_start    { readonly section .intvec };
 
-place in TEXT_region                        { readonly };
+place in DATA3_region                       { readonly };
 place in DATA3_region                       { block RW };
 place in DATA3_region                       { block ZI };
 if (isdefinedsymbol(__heap_noncacheable__)) {

@@ -129,7 +129,7 @@ static void file_read_task(void *pvParameters)
     while (1)
     {
         /* format the filename */
-        sprintf(h264FileName, "/%03d.264", i++);
+        sprintf(h264FileName, "/%03d.avc", i++);
 
         /* open it */
         error = f_open(&h264Fil, h264FileName, FA_READ | FA_OPEN_EXISTING);
